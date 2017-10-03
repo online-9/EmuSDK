@@ -1,6 +1,7 @@
 # EmuSDK
 A simple SDK intended for people new to internal cheats. Written while I was drunk.
-EmuSDK is licensed under the GNU GPLv2 Free Software License. \Please include a copy of it if you use this in any of your releases.
+EmuSDK is licensed under the GNU GPLv2 Free Software License. \
+Please include a copy of it if you use this in any of your releases.
 
 This SDK features:\
 == A netvar manager to grab your offsets dynamically.\

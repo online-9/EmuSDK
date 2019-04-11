@@ -65,7 +65,7 @@ public:
 	}
 }; extern IVEngineClient* g_pEngine;
 
-/* conveniently placed client.dll interface don't mind me */
+/* conveniently placed client_panorama.dll interface don't mind me */
 class IClientEntityList
 {
 private:

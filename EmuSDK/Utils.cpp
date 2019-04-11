@@ -127,12 +127,12 @@ using LoadFromBufferFn = void(__thiscall*)(void* thisptr, const char* resourceNa
 
 void CUtils::InitKeyValues(KeyValues* pKeyValues, const char* name) 
 {
-	InitKeyValuesFn InitKeyValuesEx = reinterpret_cast<InitKeyValuesFn>(FindPatternIDA("client.dll", "55 8B EC 51 33 C0 C7 45"));
+	InitKeyValuesFn InitKeyValuesEx = reinterpret_cast<InitKeyValuesFn>(FindPatternIDA("client_panorama.dll", "55 8B EC 51 33 C0 C7 45"));
 	InitKeyValuesEx(pKeyValues, name);
 }
 
 void CUtils::LoadFromBuffer(KeyValues* pKeyValues, const char* resourceName, const char* pBuffer, void* pFileSystem, const char* pPathID, void* pfnEvaluateSymbolProc) 
 {
-	LoadFromBufferFn LoadFromBufferEx = reinterpret_cast<LoadFromBufferFn>(FindPatternIDA("client.dll", "55 8B EC 83 E4 F8 83 EC 34 53 8B 5D 0C 89 4C 24 04"));
+	LoadFromBufferFn LoadFromBufferEx = reinterpret_cast<LoadFromBufferFn>(FindPatternIDA("client_panorama.dll", "55 8B EC 83 E4 F8 83 EC 34 53 8B 5D 0C 89 4C 24 04"));
 	LoadFromBufferEx(pKeyValues, resourceName, pBuffer, pFileSystem, pPathID, pfnEvaluateSymbolProc);
 }

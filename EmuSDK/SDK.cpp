@@ -91,17 +91,17 @@ void CSDK::Initialize()
 
 	g_pUtils->Log(" Attempting to locate and attach interfaces to the game engine...");
 
-	g_pClient = SeekInterface<IBaseClientDLL>("client.dll", "VClient");
+	g_pClient = SeekInterface<IBaseClientDLL>("client_panorama.dll", "VClient");
 	g_pEngine = SeekInterface<IVEngineClient>("engine.dll", "VEngineClient");
-	g_pEntList = SeekInterface<IClientEntityList>("client.dll", "VClientEntityList");
+	g_pEntList = SeekInterface<IClientEntityList>("client_panorama.dll", "VClientEntityList");
 	g_pEngineTrace = SeekInterface<IEngineTrace>("engine.dll", "EngineTraceClient");
 	g_pModelInfo = SeekInterface<IVModelInfo>("engine.dll", "VModelInfoClient");
 	g_pDebugOverlay = SeekInterface <IVDebugOverlay > ("engine.dll", "VDebugOverlay");
 	g_pConsole = SeekInterface<ICVar>("vstdlib.dll", "VEngineCvar");
 	g_pVGUISurface = SeekInterface<ISurface>("vguimatsurface.dll", "VGUI_Surface");
 	g_pPhysicsAPI = SeekInterface<IPhysicsAPI>("vphysics.dll", "VPhysicsSurfaceProps");
-	g_pPrediction = SeekInterface<IPrediction>("client.dll", "VClientPrediction");
-	g_pGameMovement = SeekInterface<IGameMovement>("client.dll", "GameMovement");
+	g_pPrediction = SeekInterface<IPrediction>("client_panorama.dll", "VClientPrediction");
+	g_pGameMovement = SeekInterface<IGameMovement>("client_panorama.dll", "GameMovement");
 	g_pMaterialSystem = SeekInterface<IMaterialSystem>("materialsystem.dll", "VMaterialSystem");
 	g_pGameEventManager = SeekInterface<IGameEventManager2>("engine.dll", "GAMEEVENTSMANAGER002", false);
 	g_pModelRender = SeekInterface<IVModelRender>("engine.dll", "VEngineModel");
@@ -112,7 +112,7 @@ void CSDK::Initialize()
 	g_pInput = **reinterpret_cast<CInput***>((*(uintptr_t**)g_pClient)[15] + 0x1); // IN_something + 1 = input ptr
 	/* shoutout to @snorflake btw */
 
-	g_pMoveHelper = **reinterpret_cast<IMoveHelper***>(g_pUtils->FindPatternIDA("client.dll", "8B 0D ? ? ? ? 8B 46 08 68") + 2);
+	g_pMoveHelper = **reinterpret_cast<IMoveHelper***>(g_pUtils->FindPatternIDA("client_panorama.dll", "8B 0D ? ? ? ? 8B 46 08 68") + 2);
 
 	if (!g_pMoveHelper)
 	{
